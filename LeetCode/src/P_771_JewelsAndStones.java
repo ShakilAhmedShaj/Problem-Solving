@@ -1,35 +1,14 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+public class P_771_JewelsAndStones {
 
-public class P_412_FizzBuzz {
+    public int numJewelsInStones(String J, String S) {
+        int count = 0;
 
-    public static List<String> fizzBuzz(int n) {
-        List<String> result = new ArrayList<>();
-        if (n < 1)
-            return result;
-        for (int i = 1; i <= n; i++) {
-            if (i % 15 == 0)
-                result.add("FizzBuzz");
-            else if (i % 3 == 0)
-                result.add("Fizz");
-            else if (i % 5 == 0)
-                result.add("Buzz");
-            else
-                result.add(Integer.toString(i));
+        for (int i = 0; i < J.length(); i++) {
+            for (int j = 0; j < S.length(); j++) {
+                if (J.charAt(i) == S.charAt(j))
+                    count++;
+            }
         }
-        return result;
-    }
-
-    public static void main(String[] args) throws IOException {
-
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
-        int n = Integer.parseInt(bufferedReader.readLine().trim());
-        System.out.println(P_412_FizzBuzz.fizzBuzz(n));
-
-        bufferedReader.close();
+        return count;
     }
 }
